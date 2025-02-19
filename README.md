@@ -113,21 +113,55 @@ pip install flask
 - Enter `admin` as the username and `password` as the password to log in
 - After logging in, you'll see a welcome message. Cick `logout` to log ot
 
-  
+---
+## Step 3: Configure Caddy to serve the Website Locally
+### Task: 
+Configure the CaddyFile to serve the simple website locally. This includes setting up reverse proxy or static file serving as required for your project 
+
+### Instructions:
+
+#### 1. **Run Flask App**:
+Make sure your Flask app is running on a specific port (e.g., `5000`). The default for Flask is port `5000`, so run the following command:
+
+```bash
+flask run --host=0.0.0.0 --port=5001
+```
+- This will start your Flask application, making it accessible at http://<VM-IP>:5001.
+
+#### 2. Create and Configure Caddyfile
+The Caddyfile is where you configure how Caddy will serve your website.
+- Create a Caddyfile: Navigate to /etc/caddy/ (or wherever Caddy is installed on your VM) and create a Caddyfile. You can do this with any text editor. For example, use nano:
+```bash
+   sudo nano /etc/caddy/Caddyfile
+```
+
+- Add the following configuration to reverse proxy requests: In the Caddyfile, configure Caddy to reverse proxy incoming requests to your Flask application.
+
+- <img width="459" alt="Screenshot 2025-02-19 at 3 30 20 PM" src="https://github.com/user-attachments/assets/1ea73f75-1dea-46f5-9c6c-5324fbb8ff3e" />
+
+```bash
+   :80 {
+       reverse_proxy <ip address of your flask application>:5001
+   }
+```
+
+- <img width="422" alt="Screenshot 2025-02-19 at 3 31 03 PM" src="https://github.com/user-attachments/assets/42e3665e-8eab-4851-9ebf-cd787d4e76c6" />
 
 
 
+- This configuration tells Caddy to listen on port 80 (the default HTTP port) and forward requests to your Flask app running on port 5001.
 
+#### 3. Restart Caddy
+After you’ve updated your Caddyfile, you need to restart the Caddy service for the changes to take effect. Use the following command:
+```bash
+sudo systemctl restart caddy
+```
+#### 4. Verify the Flask App is Server by Caddy:
+Open a browser and visit http://<VM-IP>. If everything is configured correctly, you should see your Flask app being served by Caddy.
 
+ <img width="554" alt="Screenshot 2025-02-19 at 3 31 43 PM" src="https://github.com/user-attachments/assets/7ea02584-06ea-4d39-b61e-3342406f8f75" />
 
-
-
-
-
-
-
-
-
+- We are now able to see our flask application using our VM's IP address
 
 
 
