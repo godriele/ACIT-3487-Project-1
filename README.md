@@ -14,7 +14,7 @@ Install Caddy on your local machine using only the terminal/command line.
 2. **Download and Install Caddy:**
    - Run the following command to download the latest Caddy binary:
      ```powershell
-     Invoke-WebRequest -Uri "https://github.com/caddyserver/caddy/releases/latest/download/caddy_windows_amd64.zip" -OutFile "caddy.zip"
+      curl -LO https://github.com/caddyserver/caddy/releases/latest/download/caddy_windows_amd64.zip
      ```
 3. **Extract the Caddy Binary:**
    - Extract the downloaded `.zip` file:
