@@ -1,48 +1,47 @@
 # ACIT-3487-Project-1
 ---
+# Part 1: Introduction
 
-# Part 2: 
-## Step 1: Installing Caddy Locally Using the Terminal
+# Part 2: Local Installation
+## Step 1: Installing Caddy Locally
 
-
-### Task:
+### Tasks
 Install Caddy on your local machine using only the terminal/command line.
 ### Instructions:
 ---
 #### For Windows:
-1. **Open PowerShell as Administrator:**
-   - Press `Windows + X` to open the quick menu, then select **Windows PowerShell (Admin)**. This will give you the necessary permissions to run installation commands.
-2. **Download the Caddy Binary:**
-   - In the PowerShell window, type the following command to download the latest Caddy binary:
-     ```powershell
-     curl "https://github.com/caddyserver/caddy/releases/latest/download/caddy_windows_amd64.zip" -o caddy_windows_amd64.zip
-     ```
-     - **Explanation:** This command uses `curl` to download the `caddy_windows_amd64.zip` file to your current directory. 
-     - **What to expect:** The download will take a few seconds to complete.
+1. **Visit the Official Caddy Website:**
+   - Open your web browser and go to the official Caddy download page:
+     - [https://caddyserver.com/download](https://caddyserver.com/download)
+
+2. **Download Caddy for Windows:**
+   - On the download page, you will see options for different operating systems.
+   - Select **Windows** (amd64) as the version you need.
+   - Click the **Download** button to get the latest `.zip` file (e.g., `caddy_windows_amd64.zip`).
 
 3. **Extract the ZIP File:**
-   - After the download completes, run the following command to extract the ZIP file:
-     ```powershell
-     Expand-Archive -Path "caddy_windows_amd64.zip" -DestinationPath "C:\Caddy"
-     ```
-     - **Explanation:** This extracts the contents of the ZIP file into the `C:\Caddy` folder.
+   - After the download is complete, navigate to your Downloads folder or wherever you saved the ZIP file.
+   - Right-click the downloaded `.zip` file and select **Extract All...**.
+   - Choose a destination for the extracted files (e.g., `C:\Caddy`).
 
 4. **Navigate to the Caddy Folder:**
-   - Now, change to the folder where Caddy was extracted:
+   - Open **PowerShell** as an administrator (press `Windows + X`, then select **Windows PowerShell (Admin)**).
+   - Change the directory to where you extracted the Caddy files. For example:
      ```powershell
      cd C:\Caddy
      ```
-     - **Explanation:** This command changes the current directory to `C:\Caddy`.
 
 5. **Run Caddy:**
-   - To start Caddy, use this command:
+   - In the PowerShell window, start Caddy with the following command:
      ```powershell
      .\caddy.exe run
      ```
-     - **What to expect:** After running this command, Caddy will start up and you should see logs in the PowerShell window.
-     - **Next Step:** Open a web browser and go to `http://localhost:2015`. You should see Caddy’s default welcome page.
+     - **What to expect:** Caddy will start, and you will see logs in the PowerShell window.
+     - **Next Step:** Open your browser and visit `http://localhost:2015`. You should see the default Caddy welcome page.
 
----
+6. **Stop Caddy:**
+   - To stop Caddy, press `Ctrl + C` in the PowerShell window.
+--- 
 #### For Linux (Ubuntu/Debian-based):
 1. **Update System Package List:**
    - Open a terminal and run the following command to update your system:
