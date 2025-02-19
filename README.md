@@ -92,6 +92,7 @@ pip install flask
 /my_project
   /templates
     login.html
+    home.html
   /static
     /css
       styles.css
