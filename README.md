@@ -163,12 +163,44 @@ Open a browser and visit http://<VM-IP>. If everything is configured correctly, 
 
 - We are now able to see our flask application using our VM's IP address
 
+# Part 3: Cloud deployment on AWS EC2 instance 
+
+Create An Ec2 Instance which allows http/https connections
 
 
+![Screenshot 2025-02-20 144227](https://github.com/user-attachments/assets/ce220bb3-3f0c-4eae-9ea1-35149d0d26e5)
 
+'''
+sudo apt install -y debian-keyring debian-archive-keyring apt-transport-https
+curl -1sLf 'https://dl.cloudsmith.io/public/caddy/stable/gpg.key' | sudo tee /etc/apt/trusted.gpg.d/caddy-stable.asc
+curl -1sLf 'https://dl.cloudsmith.io/public/caddy/stable/debian.deb.txt' | sudo tee /etc/apt/sources.list.d/caddy-stable.list
+sudo apt update && sudo apt install caddy -y
+sudo systemctl start caddy
+sudo systemctl enable caddy
 
+'''
 
-
-
-
+Run these commands to download and get caddy running
   
+![Screenshot 2025-02-19 132918](https://github.com/user-attachments/assets/56a10e48-5284-4fcc-8e66-421944aad38a)
+
+Purchased the domain through namecheap and setup the dns records
+
+![Screenshot 2025-02-20 144515](https://github.com/user-attachments/assets/7af0e0c1-3c7d-4fcf-bec7-6432bca14314)
+
+Adjust our caddy file to include our domain and reverse proxy our ip address under port 5000
+
+![Screenshot 2025-02-20 144617](https://github.com/user-attachments/assets/6ca5c5ab-5875-4821-bb8c-2bbb676b64c1)
+
+# Part 4:
+
+After uploading our website files and setting permissions correctly using the following code we can viewour fuctional login.
+
+'''
+sudo chown -R www-data:www-data /var/www/html
+sudo chmod -R 755 /var/www/html
+'''
+![Screenshot 2025-02-20 144830](https://github.com/user-attachments/assets/369cf018-666a-49ed-a7bb-bf304b57d517)
+
+
+
