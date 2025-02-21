@@ -1,7 +1,7 @@
 # ACIT-3487-Project-1
+https://youtu.be/EyygZcWdZOU
 ---
-# Part 1: Introduction
-# Part 2: Local Installation
+# Part 1: Local Installation
 ## Step 1: Installing Caddy Using Multipass
 ### Tasks
 Install Caddy inside a Multipass virtual machine to keep it isolated from your main system.
@@ -114,7 +114,7 @@ pip install flask
 - After logging in, you'll see a welcome message. Cick `logout` to log ot
 
 ---
-## Step 3: Configure Caddy to serve the Website Locally
+## Step 2: Configure Caddy to serve the Website Locally
 ### Task: 
 Configure the CaddyFile to serve the simple website locally. This includes setting up reverse proxy or static file serving as required for your project 
 
@@ -170,15 +170,18 @@ Create An Ec2 Instance which allows http/https connections
 
 ![Screenshot 2025-02-20 144227](https://github.com/user-attachments/assets/ce220bb3-3f0c-4eae-9ea1-35149d0d26e5)
 
-'''
+```bash
 sudo apt install -y debian-keyring debian-archive-keyring apt-transport-https
 curl -1sLf 'https://dl.cloudsmith.io/public/caddy/stable/gpg.key' | sudo tee /etc/apt/trusted.gpg.d/caddy-stable.asc
 curl -1sLf 'https://dl.cloudsmith.io/public/caddy/stable/debian.deb.txt' | sudo tee /etc/apt/sources.list.d/caddy-stable.list
+```
+
+```bash
 sudo apt update && sudo apt install caddy -y
 sudo systemctl start caddy
 sudo systemctl enable caddy
+```
 
-'''
 
 Run these commands to download and get caddy running
   
